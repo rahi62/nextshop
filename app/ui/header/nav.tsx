@@ -15,12 +15,17 @@ function LinkItem({ item }: { item: any }) {
 
   return (
     <li
-      key={item.name}
-      className={clsx("p-5 hover:bg-slate-100 h-full flex items-center", {
-        " bg-indigo-200 border-b-2 border-b-orange-500 ": pathname === item.href,
-      })}
+     
     >
-      <Link href={`${item.href}`}>{item.name}</Link>
+      <Link      
+       href={`${item.href}`}
+       key={item.name}
+       className={clsx("px-5 py-2 h-full flex items-center hover:border-b-2 ", {
+         "  border-b-2 border-b-orange-500 ": pathname === item.href,
+       })}
+       >
+        {item.name}
+       </Link>
     </li>
   );
 }

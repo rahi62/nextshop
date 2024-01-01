@@ -1,10 +1,17 @@
-import Nav from './nav'
+"use client";
+import { usePathname } from "next/navigation";
+import Nav from "./nav";
 
 export default function Header() {
+  const pathname: string = usePathname();
 
   return (
-    <header className="flex items-center bg-blue-400 w-screen h-[80px] ">
-      <Nav />
-    </header>
+    <>
+      {pathname === "/dashboard" ? '' : pathname === "/dashboard/users" ? '' : pathname === "/dashboard/products" ? "" : pathname === "/dashboard/customers" ? "" : (
+        <header className="flex items-center w-screen h-[80px] ">
+          <Nav />
+        </header>
+      )}
+    </>
   );
 }
